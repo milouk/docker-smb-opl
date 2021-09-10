@@ -14,6 +14,7 @@ RUN apk add --no-cache --update sudo \
     'samba-server<'${VERSION}''
 
 RUN apk add --no-cache --update    # If your base image does not contain sudo.
+RUN apk add ethtool # This is need to measure the link speed
 RUN adduser -D -s /bin/ash -u 1000 ${USER} && addgroup ${USER} root  # Grant sudo to the user
 RUN echo ''${USER}' ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN echo -ne ""${PASS}"\n"${PASS}"\n" | sudo smbpasswd -a -s ${USER}
