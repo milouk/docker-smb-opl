@@ -26,13 +26,4 @@ COPY smb.conf /etc/samba/smb.conf
 EXPOSE 445/tcp
 EXPOSE 445/udp
 
-EXPOSE 139/tcp
-EXPOSE 139/udp
-
-EXPOSE 137/tcp
-EXPOSE 137/udp
-
-EXPOSE 138/tcp
-EXPOSE 138/udp
-
 CMD ["sudo", "smbd", "--foreground", "--log-stdout", "--no-process-group"]
